@@ -1,7 +1,7 @@
 <?php
 
-//use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,6 +22,9 @@ Route::get('/', function () {
 
 });*/
 
+Route::get('/', function () {
+    return view('auth/login');
+    });
 
 Route::resource('vehiculo', 'VehiculoController');
 
@@ -29,3 +32,5 @@ Route::resource('vehiculo', 'VehiculoController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('tarifa','TarifaController');
