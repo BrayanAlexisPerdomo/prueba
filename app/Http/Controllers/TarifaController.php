@@ -53,7 +53,7 @@ class TarifaController extends Controller
     {
         //
         $tarifa=new Tarifa;
-        $tarifa->tipo_vehiculo_id=$request->get('role_id');
+        $tarifa->tipo_vehiculo_id=$request->get('tipo_vehiculo_id');
         $tarifa->valor=$request->get('valor');
         $tarifa->estado=$request->get('estado');
         $tarifa->save();
@@ -94,7 +94,7 @@ class TarifaController extends Controller
     public function update(TarifaFormRequest $request, $id)
     {
         //
-        $this->validate($request, ['role_id' => 'required', 'valor' => 'required', 'estado' => 'required']);
+        $this->validate($request, ['tipo_vehiculo_id' => 'required', 'valor' => 'required', 'estado' => 'required']);
         Tarifa::find($id)->update($request->all());
         return redirect()->route('tarifa.index')->with('success', 'Registro actualizado');
     }

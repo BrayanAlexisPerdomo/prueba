@@ -29,7 +29,7 @@
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                 <div class="form-group">
-                                    <input type="text" name="role_id" id="role_id" class="form-control inputsm" value="{{$tarifa->tipo_vehiculo_id}}">
+                                    <input type="text" name="tipo_vehiculo_id" id="tipo_vehiculo_id" class="form-control inputsm" value="{{$tarifa->tipo_vehiculo_id}}">
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">

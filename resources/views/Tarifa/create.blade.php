@@ -16,7 +16,7 @@
         {{Form::token()}}
         <div class="form-group">
             <label for="nombre">Tipo vehículo</label>
-            <select type="text" name="role_id" id="role_id" class="form-control selectpicker" data-live-search="true" required>
+            <select type="text" name="tipo_vehiculo_id" id="tipo_vehiculo_id" class="form-control selectpicker" data-live-search="true" required>
                 <option value="">Seleccione un tipo de Vehiculo</option>
                 @foreach($tipo_vehiculo as $tipov)
                 <option value="{{$tipov->id}}">{{ $tipov->nombre }}</option>

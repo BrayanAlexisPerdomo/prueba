@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTarifasTable extends Migration
+class CreateTicketTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateTarifasTable extends Migration
      */
     public function up()
     {
-        Schema::create('tarifas', function (Blueprint $table) {
+        Schema::create('ticket', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('tipo_vehiculo_id');
-            $table->foreign('tipo_vehiculo_id')->references('id')->on('tipo_vehiculos')->onDelete('cascade');
-            $table->integer('valor');
-            $table->integer('estado');
-           
+            $table->TIMESTAMP('fecha_salida');
+            $table->integer('total');
+            $table->UnsignedInteger('ingreso_vehiculo_id');
+            $table->foreign('ingreso_vehiculo_id')->references('id')->on('vehiculos')->onDelete('cascade');
         });
     }
 
@@ -30,6 +29,7 @@ class CreateTarifasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tarifas');
+        
+        Schema::dropIfExists('ticket');
     }
 }

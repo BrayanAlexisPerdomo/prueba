@@ -24,7 +24,7 @@ Route::get('/', function () {
 
 Route::get('/', function () {
     return view('auth/login');
-    });
+});
 
 Route::resource('vehiculo', 'VehiculoController');
 
@@ -33,4 +33,14 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('tarifa','TarifaController');
+Route::resource('tarifa', 'TarifaController');
+
+Route::resource('ingresoV', 'Ingreso_vehiculoController');
+
+Route::resource('ticket', 'TicketController');
+
+Route::get('ticket/{placa}/{id}/{valor}', 'TicketController@generarTicket')->name('ticket');
+
+Route::get('/', 'ChatsController@index');
+Route::get('messages', 'ChatsController@fetchMessages');
+Route::post('messages', 'ChatsController@sendMessage');

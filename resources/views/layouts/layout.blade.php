@@ -12,6 +12,38 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <link rel="stylesheet" href="{{asset('/bower_components/bootstrap/dist/css/bootstrap.min.css')}}">
+  <style>
+ .chat {
+ list-style: none;
+ margin: 0;
+ padding: 0;
+ }
+ .chat li {
+ margin-bottom: 10px;
+ padding-bottom: 5px;
+ border-bottom: 1px dotted #B3A9A9;
+ }
+ .chat li .chat-body p {
+ margin: 0;
+ color: #777777;
+ }
+ .panel-body {
+ overflow-y: scroll;
+ height: 350px;
+ }
+ ::-webkit-scrollbar-track {
+ -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+ background-color: #F5F5F5;
+ }
+ ::-webkit-scrollbar {
+ width: 12px;
+ background-color: #F5F5F5;
+ }
+ ::-webkit-scrollbar-thumb {
+ -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+ background-color: #555;
+ }
+</style>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="{{asset('/bower_components/font-awesome/css/font-awesome.min.css')}}">
   <!-- Ionicons -->
@@ -301,8 +333,10 @@ desired effect
         </ol>
       </section>
 
-      <!-- Main content -->
-      <section class="content container-fluid" style="background-color:lightblue;">
+      <!-- Main content 
+       style="background-color:lightblue;"
+      -->
+      <section class="content container-fluid">
 
         @yield('contenido')
 
