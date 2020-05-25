@@ -13,37 +13,43 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <link rel="stylesheet" href="{{asset('/bower_components/bootstrap/dist/css/bootstrap.min.css')}}">
   <style>
- .chat {
- list-style: none;
- margin: 0;
- padding: 0;
- }
- .chat li {
- margin-bottom: 10px;
- padding-bottom: 5px;
- border-bottom: 1px dotted #B3A9A9;
- }
- .chat li .chat-body p {
- margin: 0;
- color: #777777;
- }
- .panel-body {
- overflow-y: scroll;
- height: 350px;
- }
- ::-webkit-scrollbar-track {
- -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
- background-color: #F5F5F5;
- }
- ::-webkit-scrollbar {
- width: 12px;
- background-color: #F5F5F5;
- }
- ::-webkit-scrollbar-thumb {
- -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
- background-color: #555;
- }
-</style>
+    .chat {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .chat li {
+      margin-bottom: 10px;
+      padding-bottom: 5px;
+      border-bottom: 1px dotted #B3A9A9;
+    }
+
+    .chat li .chat-body p {
+      margin: 0;
+      color: #777777;
+    }
+
+    .panel-body {
+      overflow-y: scroll;
+      height: 350px;
+    }
+
+    ::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      background-color: #F5F5F5;
+    }
+
+    ::-webkit-scrollbar {
+      width: 12px;
+      background-color: #F5F5F5;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+      background-color: #555;
+    }
+  </style>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="{{asset('/bower_components/font-awesome/css/font-awesome.min.css')}}">
   <!-- Ionicons -->
@@ -64,6 +70,40 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!--Incluyendo JQuery-->
+  <script src="{{asset('js/jquery-3.5.1.js')}}"></script>
+  <script>
+    $(document).ready(function() {
+      $("#logo").hover(function() {
+          $(this).css("color", "yellow");
+        },
+        function() {
+          $(this).css("color", "white");
+        });
+
+      $("#ojo").click(function() {
+        $("#busqueda").toggle();
+      });
+
+      $("#searchText").focusin(function() {
+        $(this).css("background-color", "white");
+      });
+
+      $("#searchText").focusout(function() {
+        $(this).css("background-color", "lightgray");
+      });
+
+      $(".tabla").dblclick(function() {
+        $(this).css("background-color", "lightgreen");
+      });
+
+
+    });
+  </script>
 </head>
 <!--
 BODY TAG OPTIONS:
@@ -93,7 +133,7 @@ desired effect
     <header class="main-header">
 
       <!-- Logo -->
-      <a href="{{URL::action('VehiculoController@index')}}" class="logo" style="background-color:darkslateblue;">
+      <a href="{{URL::action('VehiculoController@index')}}" id="logo" class="logo" style="background-color:darkslateblue;">
         <!-- mini logo for sidebar mini 50x50 pixels -->
         <span class="logo-mini"><b>A</b>LT</span>
         <!-- logo for regular state and mobile devices -->
@@ -222,7 +262,7 @@ desired effect
                   <img src="{{asset('https://pngimage.net/wp-content/uploads/2018/06/sistemas-png-1.png')}}" class="img-circle" alt="User Image">
 
                   <p>
-                  {{ Auth::user()->name }} - analyst developer
+                    {{ Auth::user()->name }} - analyst developer
                     <small>systems technology</small>
                   </p>
                 </li>
@@ -280,7 +320,7 @@ desired effect
           <div class="pull-left info">
             <p> {{ Auth::user()->name }}</p>
             <!-- Status -->
-            <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+            <a id="estado" href="#"><i id="cir_e" class="fa fa-circle text-success"></i> Online</a>
           </div>
         </div>
 
@@ -336,7 +376,7 @@ desired effect
       <!-- Main content 
        style="background-color:lightblue;"
       -->
-      <section class="content container-fluid">
+      <section class="content container-fluid" style="background-color:lightblue;">
 
         @yield('contenido')
 

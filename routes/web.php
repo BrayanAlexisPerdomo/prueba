@@ -22,9 +22,16 @@ Route::get('/', function () {
 
 });*/
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('auth/login');
 });
+*/
+Route::get('/prac', function () {
+    return view('Practicasjq/index');
+   });
+   Route::get('/prac2', function () {
+    return view('Practicasjq/index2');
+   });
 
 Route::resource('vehiculo', 'VehiculoController');
 
